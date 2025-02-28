@@ -29,22 +29,37 @@
 };
 
 / {
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
 
-    macros {
-        gif: gif {
-            label = "giphy";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
+        rus_he {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <9 8>;
+        };
+
+        rus_ie {
+            bindings = <&kp SQT>;
+            key-positions = <18 19>;
+        };
+
+        rus_hard {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <27 28>;
+        };
+
+        rus_io {
+            bindings = <&kp GRAVE>;
+            key-positions = <4 3>;
+        };
+
+        ios_lang {
+            bindings = <&kp LC(SPACE)>;
+            key-positions = <3 2 1>;
+        };
+
+        DFG {
+            bindings = <&kp LS(LEFT_ALT)>;
+            key-positions = <12 13 11>;
         };
     };
 
@@ -85,28 +100,28 @@
 
         diginav_layer {
             bindings = <
-                       &kp APOSTROPHE  &kp BACKSLASH  &kp MINUS     &kp EQUAL     &kp GRAVE       &trans      &trans  &trans        &trans  &trans
-                       &kp NUMBER_1    &kp NUMBER_2   &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &trans      &trans  &trans        &trans  &trans
-&mt LEFT_SHIFT ESCAPE  &kp NUMBER_6    &kp NUMBER_7   &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &trans      &trans  &trans        &trans  &trans  &trans
-                                                      &lt 3 TAB     &trans        &kp ESCAPE      &kp ESCAPE  &trans  &lt 3 DELETE
+                       &kp APOSTROPHE  &kp BACKSLASH  &kp MINUS     &kp EQUAL     &kp GRAVE       &kp PG_UP     &kp INS            &kp UP_ARROW     &kp RIGHT_BRACKET  &mt RIGHT_GUI LEFT_BRACKET
+                       &kp NUMBER_1    &kp NUMBER_2   &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp PG_DN     &kp LEFT           &kp DOWN         &kp RIGHT          &mt RCTRL SQT
+&mt LEFT_SHIFT ESCAPE  &kp NUMBER_6    &kp NUMBER_7   &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &mt HOME END  &kp RIGHT_BRACKET  &kp PRINTSCREEN  &kp PAUSE_BREAK    &mt RIGHT_ALT CAPSLOCK      &kp PRINTSCREEN
+                                                      &lt 3 TAB     &trans        &kp ESCAPE      &kp ESCAPE    &trans             &lt 3 DELETE
             >;
         };
 
         fnumpad_layer {
             bindings = <
-        &kp LEFT_GUI      &kp F1  &kp F2   &kp F3   &kp F4         &trans        &trans  &trans  &trans  &trans
-        &kp LEFT_CONTROL  &kp F5  &kp F6   &kp F7   &kp F8         &trans        &trans  &trans  &trans  &trans
-&trans  &kp LEFT_ALT      &kp F9  &kp F10  &kp F11  &kp F12        &trans        &trans  &trans  &trans  &trans  &trans
-                                  &trans   &trans   &lt 3 ENTER    &lt 3 ESCAPE  &trans  &trans
+        &kp LEFT_GUI      &kp F1  &kp F2   &kp F3   &kp F4         &kp KP_SLASH  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &mt RGUI KP_MINUS
+        &kp LEFT_CONTROL  &kp F5  &kp F6   &kp F7   &kp F8         &kp KP_DOT    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &mt RCTRL KP_PLUS
+&trans  &kp LEFT_ALT      &kp F9  &kp F10  &kp F11  &kp F12        &kp KP_N0     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &mt RIGHT_ALT KP_MULTIPLY  &kp KP_NUMLOCK
+                                  &trans   &trans   &lt 3 ENTER    &lt 3 ESCAPE  &trans           &trans
             >;
         };
 
         adjust_layer {
             bindings = <
-            &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4      &trans  &trans  &trans  &trans  &trans
-            &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4     &trans  &trans  &trans  &trans  &trans
-&sys_reset  &bootloader    &trans         &trans         &trans         &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &trans  &trans
-                                          &trans         &trans         &trans            &trans  &trans  &trans
+                &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4     &kp C_BRIGHTNESS_INC  &kp C_VOLUME_UP  &kp C_PREVIOUS    &trans  &trans
+                &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4    &kp C_BRI_AUTO        &kp C_MUTE       &kp C_PLAY_PAUSE  &trans  &trans
+&bt BT_CLR_ALL  &sys_reset     &bootloader    &bt BT_PRV     &bt BT_NXT     &bt BT_CLR       &kp C_BRIGHTNESS_DEC  &kp C_VOL_DN     &kp C_NEXT        &trans  &trans  &trans
+                                              &trans         &trans         &trans           &trans                &trans           &trans
             >;
         };
     };
